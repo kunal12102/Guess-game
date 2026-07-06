@@ -2,7 +2,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,9 @@ jobs:
       - name: Build APK
         uses: Digreatbrian/buildozer-action@v2
         with:
-          buildozer_version: stable
+          python-version: "3.10"
+          work-dir: .
+          buildozer-cmd: buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
